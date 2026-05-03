@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Library</title>
+    <link rel="stylesheet" href="csslibr.css">
+</head>
+<body>
+    <div class="main-container">
+        <div class="library">
+            <div>Library</div>
+            <div id="libraryContainer"></div>
+        </div>
+        <div id="canvas-container">
+            <button class="toggle addbook">Add Book</button>
+            <!-- <div  id="form-container"> -->
+                <form class="hidden" id="form">
+                    
+                        <div class="field">
+                            <label>Book Title</label>
+                            <input type="text" id="title" name="title" required/>
+                        </div>
+                   
+                  
+                        <div class="field">
+                            <label>Book Author</label>
+                            <input type="text" id="author" name="author" required/>
+                        </div>
+                    
+                    
+                        <div class="field3">
+                            <label>Pages</label>
+                            <input type="number" pattern="[0-9]*"id="pages" name="pages"/>
+                            
+                        <div class="read">
+                            
+                            <label class="switch">
+                            <input type="checkbox" id="read" value="read" name=read;/>
+                            <span class="slider"></span>
+                            </label>
+                            <p id="readvalue">Unread</p>
+                        </div>
+                        </div>
+                       
+                         <div class="field" id="radio-segment">
+                            <div class="extralabel">Type</div>
+                            <label>
+                                <input type="radio" name="type" value='Fiction' class="radio-opt" unchecked>
+                                <span>Fiction</span>
+                            </label>
+
+                            <label>
+                                <input type="radio" name="type" value="Non-Fiction" class="radio-opt" unchecked>
+                                <span>Non-Fiction</span>
+                            </label>
+
+                        </div>
+                    
+                        <div class="field2">
+                            <button type="submit" id="submit">Add To Library</button>
+                            
+                        </div>
+                        
+                       
+                </form>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+   <script src="jslibry.js"></script>
+</body>
+</html>

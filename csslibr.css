@@ -1,0 +1,369 @@
+@font-face{
+    font-family: "ABC Monument Grotesk Trial";
+    src: url('assets/ABCMonumentGrotesk-Regular-Trial.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "ABC Monument Grotesk Trial";
+  src: url('assets/ABCMonumentGrotesk-Bold-Trial.otf') format('opentype');
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: "ABC Monument Grotesk Mono Trial";
+  src: url('assets/ABCMonumentGroteskMono-Regular-Trial.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root{
+    --fs: .75rem;
+    --margin:18px;
+
+    /* color */
+     --foreground: #a5a8f7;
+  --background: #0e0f42;
+  --background-form: #060619;
+  --iris-drop-shadow: #494EC3;
+  --iris-main: #8f94ff;
+  --iris-separator: #969af9;
+  --iris-slider-track: #a8acfc;
+  --iris-tool: #8084f2;
+  --iris-hover: #C7C9FF;
+  --iris-slider-hover: #BDC0FF;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing:antialiased
+}
+
+body{
+ background: var(--background);
+}
+
+.hidden{
+    display:none;
+   
+}
+
+.grid{
+    display:flex;
+    flex-direction: column;
+    max-width:fit-content;
+    
+
+    
+}
+
+.main-container{
+    display:grid;
+    grid-template-columns: 1.2fr 1fr;
+    
+}
+
+
+.canvas-container{
+    
+    display: flex;
+    align-items: flex-end;
+}
+
+/* BUTTONS */
+
+.addbook{
+    font-size: var(--fs);
+    margin:18px;
+    border:none;
+    padding:0.25rem;
+    background-color: black;
+    color:white;
+}
+
+.addbook:hover{
+    background: gray;
+    color:black;
+}
+
+.btn-closed{
+    background: black;
+    font-size:var(--fs);
+    color:white;
+    border:none;
+    padding:0.25rem;
+    margin: 18px;
+}
+
+.btn-form-opened{
+    background-color: #400404;
+    font-size:var(--fs);
+    color:white;
+     border:none;
+     padding:0.25rem;
+     margin: 18px;
+}
+
+.btn-form-opened:hover,
+.btn-closed:hover{
+    background: gray;
+    color:black;
+}
+
+.library{
+    text-align: left;
+    color: var(--foreground);
+    font-size:var(--fs) * 3;
+    
+    
+    margin:18px;
+}
+
+.libraryContainer{
+    display:flex;
+}
+
+/* FORM */
+
+#form{
+
+   color: white;
+   background-color: rgb(2, 1, 59);
+   box-shadow: 0 3px 6px 0 rgb(3, 2, 46);
+   text-align: left;
+   border-radius: 0px;
+   padding-top:2rem;
+}
+
+label,
+.extralabel {
+    color:white;
+    font-family:'ABC Monument Grotesk Trial';
+    font-size: 1rem;
+    display:inline-block;
+    width: 7rem;
+    text-align:center;
+    padding-bottom: 0.75rem;
+    padding-top:0.25rem;
+    
+}
+
+input[type=text],
+input[type=number]{
+    border:none;
+    color: white;
+    font: inherit;
+    font-size:2rem;
+    background-color: var(--iris-tool);
+    
+    border-radius:2px;
+    width:9rem;
+    
+}
+
+input[type=text]:hover,
+input[type=number]:hover{
+
+background-color: #BDC0FF;
+}
+input[type=text]:focus,
+input[type=number]:focus{
+    background-color:#a8acfc;
+    color:black;
+}
+
+.read{
+    
+    padding-left:1rem;
+   
+}
+
+
+.switch{
+    position: relative;
+    display:inline-block;
+    
+    
+}
+
+.switch input{
+    opacity:0;
+    pointer-events: 0;
+}
+
+.slider{
+    
+   
+    position: absolute;
+    cursor:pointer;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    width:63px;
+    background-color:#400404;
+    -webkit-transition: .4s;
+    transition:.4s;
+}
+
+.slider:before{
+    position:absolute;
+    content: "";
+    height: 26px;
+    width:26px;
+    left:4px;
+    bottom:4px;
+    background-color:#0e0f42;
+    -webkit-transition: .4s;
+    transition: .4s;
+    
+
+}
+.slider:hover{
+ background-color: gray;
+}
+input:checked + .slider{
+    background-color:#2124cc;
+
+    content:"read"
+}
+
+input:focus + .slider{
+    box-shadow: 0 0 1px #2124cc;
+}
+
+input:checked + .slider:before{
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+
+}
+
+
+#author,
+#title{
+width:16rem;
+}
+#pages{
+    height: 4.5rem;
+    font-size:3rem;
+}
+
+.field:not(input[type=checkbox]){
+    display:flex;
+    
+    padding:12px;
+    border-bottom: solid rgb(8, 35, 74) 0.1px;
+}
+
+.field2{
+    display:flex;
+    justify-content: flex-end;
+    padding:12px;
+    border-bottom: solid rgb(8, 35, 74) 0.1px;
+}
+
+.field3{
+    display:flex;
+    justify-content: center;
+    padding:12px;
+    gap:rem;
+}
+#form-container{
+ 
+  
+}
+#submit{
+    border:none;
+    padding:0.7rem;
+    background-color: rgb(1, 0, 33);
+    color:white;
+    display:flex;
+    justify-content: center;
+    
+}
+
+#submit:hover{
+    background-color: #2124cc;
+    
+}
+
+#radio-segment input[type="radio"]{
+    position:absolute;
+    opacity: 0;
+    pointer-events: none;
+
+}
+
+#radio-segment > label{
+    display:flex;
+    flex-wrap:nowrap;
+    justify-content:flex-start;
+    width:fit-content;
+    margin-right:0.45rem;
+
+}
+
+#radio-segment span{
+    background-color: rgb(77, 76, 89);
+    padding:5px;
+}
+
+#radio-segment label > span{
+    display:inline-flex;
+    align-items:center;
+    gap:0;
+    cursor: pointer;
+}
+
+#radio-segment label:hover > span{
+    background-color: #8084f2;
+    color:black;
+
+}
+
+#radio-segment input[type="radio"]:checked + span,
+.radio-opt input[type="radio"]:checked + span{
+    background-color: rgb(0, 17, 128);
+    color:white;
+}
+
+[id^="bookDispla"]{
+    display:grid;
+    grid-template-columns: 1fr 1fr repeat(2, 0.5fr) 0.5fr 0.1fr;
+    grid-template-rows: 0.4fr 1fr;
+    color:white;
+    background-color: #070824;
+    padding:1rem;
+    gap:1rem;
+    height:min-content;
+    margin-bottom:1rem;
+    
+}
+
+
+[id^="bookDispla"]:hover{
+    transition: .100s ease-in-out;
+
+    font-size:1.3rem;
+}
+.dele{
+    
+    border:none;
+    background-color: #400404;
+    color:white;
+    padding:5px;
+}
+
+.dele:hover{
+    background-color:#6c1212;
+    padding:10px;
+}
+
+
