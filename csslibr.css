@@ -348,11 +348,7 @@ width:16rem;
 }
 
 
-[id^="bookDispla"]:hover{
-    transition: .100s ease-in-out;
 
-    font-size:1.3rem;
-}
 .dele{
     
     border:none;

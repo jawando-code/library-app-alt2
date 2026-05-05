@@ -141,7 +141,7 @@ function showBook() {
        
         bookDisplay.id = "bookDisplay" + "_" + i++;
         bookDisplay.dataset.bookId = item.id;
-        
+        bookDisplay.classList = "booksDisplayed"
         let titleHead = document.createElement('div')
         titleHead.textContent = "Title"
         let showTitle = document.createElement("div");
@@ -172,7 +172,7 @@ function showBook() {
         
         let dele = document.createElement('button')
         dele.textContent = "delete";
-        dele.className = "dele"
+        dele.className = "dele";
 
         bookDisplay.append(titleHead,authorHead, pageHead, readHead, typeHead, dele, showTitle, showAuthor,showPage,showRead, showType);
         mainContainer.append(bookDisplay)
@@ -184,37 +184,70 @@ function showBook() {
 }
 showBook(myLibrary);
 
-let deleteBtn = document.querySelectorAll('.dele');
-deleteBtn.forEach( (deleteBtn)=> {
-    deleteBtn.addEventListener('click', (e) => {
-    const bookD = e.target.closest('[data-book-id]');
-    const id =  bookD.dataset.bookId;
-    const bookSelect = document.querySelector(`[data-book-id="${id}"]`);
+// let deleteBtn = document.querySelectorAll('.dele');
+// deleteBtn.forEach( (deleteBtn)=> {
+//     deleteBtn.addEventListener('click', (e) => {
+//     const bookD = e.target.closest('[data-book-id]');
+//     const id =  bookD.dataset.bookId;
+//     const bookSelect = document.querySelector(`[data-book-id="${id}"]`);
 
-    const index = myLibrary.findIndex(item => item.id === id)
-    promptMessage();
+//     const index = myLibrary.findIndex(item => item.id === id)
+//     promptMessage();
     
     
-    function promptMessage() {
-    console.log("Delete Book?")
+//     function promptMessage() {
+//     console.log("Delete Book?")
    
-    let a = confirm("Are you sure you want to delete this book?");
+//     let a = confirm("Are you sure you want to delete this book?");
 
-    if(a === true){
-        console.log("Yes. Book removed from Library.")
-        if(index !== -1)myLibrary.splice(index,1);
-        if(bookSelect){bookSelect.remove()};
+//     if(a === true){
+//         console.log("Yes. Book removed from Library.")
+//         if(index !== -1)myLibrary.splice(index,1);
+//         if(bookSelect){bookSelect.remove()};
 
         
 
-    } else {
-        console.log("No.")
-    }
+//     } else {
+//         console.log("No.")
+//     }
     
-    }
-})
+//     }
+// })
 
 
-})
+// })
 
 
+
+
+let bookDisplay = document.querySelectorAll(".booksDisplayed")
+
+
+let library = document.querySelector('.library')
+
+library.addEventListener('click', function (e){
+    // let dele = document.querySelectorAll('dele')
+    if(e.target.classList.contains('dele')){
+  
+    child = e.target.closest('[data-book-id');
+    console.log("child:",child)
+    promptMsg()
+
+    function promptMsg() {
+        let a = confirm("Do you want to remove this book from the library?")
+        if(a == true){
+            console.log("Removing book from library")
+            removeBook()
+
+            function removeBook(){
+               
+                child.remove();
+              
+                
+            }
+        }   else {
+            console.log("No. Book stays")
+        }
+            }
+}}
+)
